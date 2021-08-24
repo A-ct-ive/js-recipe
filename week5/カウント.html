@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue カウンター</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>
+        Vueカウンター
+      </h1>
+      <div>
+        <!-- 🔥{{ count }}🔥 -->
+        {{ three }}
+        <!-- {{plusOne}}　 -->
+      </div>
+      <!-- <div v-if="count % 3 === 0">{{ count }}！！！！！</div>
+      <div v-else>🔥{{ count }}🔥</div> -->
+      <button v-on:click="fire">
+        {{ count }}
+      </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+        },
+        methods: {
+          fire: function() {
+            this.count += 1
+          },
+          // if (number % 3 === 0) {
+          //   console.log(number + "!!!!!!!")
+          // } else {
+          //   console.log(number)
+          // }
+        },
+        computed: {
+          // plusOne: function () {
+          //   return this.count + 1;
+          // },
+          three: function() {
+            // computedを使ってcountが3の倍数の時は、3の代わりに3❗️❗️❗️❗️ みたいな表示になるようにしてください。
+            // ① computedを使う
+            // ② countが3の倍数やったら!!!!をつけた表示にする
+            // ③ countが3の倍数じゃないときは、数字をそのまま表示する
+            // ②のときと③のときで処理をわける -> if文
+            // Vue的には、returnすればreturn -> 表示される
+            // return this.count % 3 === 0;
+            if (this.count % 3 === 0) {
+              // 条件のとき
+              return this.count + "!!!!!!!"
+            } else {
+              // 条件じゃないとき
+              return this.count
+            }
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
